@@ -1,0 +1,30 @@
+package Popup;    // POPUP (ALERT POPUP)
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class class1_1 {
+
+	public static void main(String[] args) throws Exception {
+		
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+		// SIGNUP BUTTON
+		WebElement a= driver.findElement(By.xpath("//input[@value='Sign in']"));
+		a.click();
+		Thread.sleep(2000);
+		// POPUP WINDOW
+		Alert alt = driver.switchTo().alert();
+		System.out.println("Popup Text=" +alt.getText()); 
+		// CLICK OK
+		alt.accept();  
+		driver.close();
+		
+	}
+
+}
